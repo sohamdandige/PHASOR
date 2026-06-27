@@ -25,7 +25,7 @@ try:
 except ImportError:  # pragma: no cover - supabase is an expected prod dependency
     create_client = None
 
-from config.models import (
+from models import (
     PLAN_CONFIGS,
     OPENROUTER_API_URL,
     OPENROUTER_API_KEY,
