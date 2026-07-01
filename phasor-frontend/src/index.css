@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+:root {
+  --bg-app: #09090B;
+  --bg-sidebar: #121214;
+  --bg-card: #18181B;
+  --bg-input: #141417;
+  --border: #27272A;
+  --text-primary: #F4F4F5;
+  --text-secondary: #A1A1AA;
+  --accent-purple: #7C3AED;
+  --accent-blue: #2563EB;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  background: var(--bg-app);
+  color: var(--text-primary);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  overflow: hidden;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #52525b; }
+
+.font-mono { font-family: 'JetBrains Mono', monospace; }
+
+/* Gradient brand button */
+.btn-gradient {
+  background: linear-gradient(135deg, #7C3AED, #2563EB);
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+.btn-gradient:hover { opacity: 0.88; }
+.btn-gradient:disabled { opacity: 0.45; cursor: not-allowed; }
+
+/* Gradient text */
+.text-gradient {
+  background: linear-gradient(135deg, #7C3AED, #2563EB);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* SSE terminal line animation */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.cursor-blink { animation: blink 1s step-end infinite; }
+
+/* Debate diff colors */
+.diff-add { color: #4ade80; }
+.diff-remove { color: #f87171; }
+.diff-neutral { color: #a1a1aa; }
+
+/* Panel slide */
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+.slide-in { animation: slideIn 0.2s ease-out; }
+
+/* Backdrop */
+.backdrop {
+  backdrop-filter: blur(8px);
+  background: rgba(9,9,11,0.7);
+}
+
+/* Fade-in for messages */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp 0.25s ease-out; }
+
+/* Snippet fade */
+.snippet-fade {
+  -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+}
